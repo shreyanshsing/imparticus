@@ -55,7 +55,7 @@ function EnrollModal({open, setOpen}: {open: boolean, setOpen: any}) {
             localStorage.setItem('course', selectedCourse?.course_code)
             enqueueSnackbar("Enrollment Sucessful", { variant: 'success' })
             setOpen(false)
-            navigation('my-courses', { replace: true })
+            navigation(`my-courses/${selectedCourse?.course_code}`, { replace: true })
         })
         .catch(err => {
             enqueueSnackbar(`Enrollment Failed: ${err.response.data}`, { variant: 'error' })
